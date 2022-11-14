@@ -34,6 +34,40 @@ In this project I am building an API using Node.js, Express.js, MySQL, and Seque
 
 * It's done when the API is successfully deployed to Heroku with a MySQL database.
 
+## Specifications 
+
+* Database models should have the following fields and associations:
+
+  * `Traveller`
+
+    * `id`: primary key
+
+    * `name`
+      
+    * `email`
+
+  * `Location`
+
+    * `id`: primary key
+    
+    * `location_name`
+
+  * `Trips`
+      
+    * `id`: primary key
+
+    * `trip_budget` 
+      
+    * `traveller_amount`
+      
+    * `traveller_id`: non-unique foreign key that references the `Traveller` model's `id` field (`Traveller.id`)
+
+    * `location_id`: non-unique foreign key that references the `Location` model's `id` field (`Location.id`)
+
+  * Travellers have many locations, and locations have many travellers through trips (many-to-many association).
+
+  * Set the `unique` flag to `false` to avoid a SQL error when creating the many-to-many relationship, because travellers can take multiple trips.
+
 
 
 ---
